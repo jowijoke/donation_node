@@ -10,6 +10,15 @@ server.register(require('inert'), err => {
     throw err;
   }
 
+  server.views({
+    engines: {
+      hbs: require('handlebars'),
+    },
+    relativeTo: __dirname,
+    path: './app/views',
+    isCached: false,
+  });
+
   server.route(require('./routes'));
 
   server.start(err => {
