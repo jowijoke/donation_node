@@ -6,6 +6,7 @@ module.exports = [
 
   {method: 'GET', path: '/', config: Accounts.main},
   { method: 'GET', path: '/signup', config: Donations.signup },
+  {method: 'POST', path: '/register', config: Accounts.register},
   { method: 'GET', path: '/login', config: Donations.login },
   {method: 'POST', path: '/login', config: Accounts.authenticate},
   {method: 'POST', path: '/donate', config: Donations.donate},
