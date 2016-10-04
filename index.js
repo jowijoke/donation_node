@@ -5,15 +5,6 @@ const Hapi = require('hapi');
 var server = new Hapi.Server();
 server.connection({ port: process.env.PORT || 4000 });
 
-const initUsers = {
-  'homer@simpson.com': {
-    firstName: 'homer',
-    lastName: 'simpson',
-    email: 'homer@simpson.com',
-    password: 'secret',
-  },
-};
-
 server.bind({
   currentUser: {},
   users: [],
