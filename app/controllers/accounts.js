@@ -3,7 +3,7 @@
 exports.main = {
   auth: false,
   handler: function (request, reply) {
-    reply.view('main', {title: 'Welcome to Donations'});
+    reply.view('main', {title: 'Welcome to Donations' });
   },
 
 };
@@ -11,7 +11,7 @@ exports.main = {
 exports.signup = {
   auth: false,
   handler: function (request, reply) {
-    reply.view('signup', {title: 'Sign up for Donations'});
+    reply.view('signup', {title: 'Sign up for Donations' });
   },
 
 };
@@ -29,7 +29,7 @@ exports.register = {
 exports.login = {
   auth: false,
   handler: function (request, reply) {
-    reply.view('login', { title: 'Login to Donations'});
+    reply.view('login', { title: 'Login to Donations' });
   },
 
 };
@@ -47,6 +47,24 @@ exports.authenticate = {
     } else {
       reply.redirect('/signup');
     }
+  },
+
+};
+
+exports.viewSettings = {
+  auth: false,
+  handler: function (request, reply) {
+    reply.view('settings', { title: 'Settings Page' });
+  },
+
+};
+
+exports.updateSettings = {
+  auth: false,
+  handler: function (request, reply) {
+    const user = request.payload;
+    this.users[user.email] = user;
+    reply.redirect('/home');
   },
 
 };
