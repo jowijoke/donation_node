@@ -54,7 +54,9 @@ exports.authenticate = {
 exports.viewSettings = {
   auth: false,
   handler: function (request, reply) {
-    reply.view('settings', { title: 'Settings Page' });
+    var userEmail = request.auth.credentials.loggedInUser;
+    var currentUserDetails = this.users[userEmail];
+    reply.view('settings', { title: 'Edit Account Settings',user:currentUserDetails });
   },
 
 };
@@ -64,7 +66,7 @@ exports.updateSettings = {
   handler: function (request, reply) {
     const user = request.payload;
     this.users[user.email] = user;
-    reply.redirect('/home');
+    reply.redirect('/settings');
   },
 
 };
