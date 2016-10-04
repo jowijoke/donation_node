@@ -19,7 +19,9 @@ exports.signup = {
 exports.register = {
 
   handler: function (request, reply) {
-    reply.redirect('/home');
+    const data = request.payload;
+    this.users.push(data);
+    reply.redirect('/login');
   },
 
 };
@@ -35,7 +37,16 @@ exports.login = {
 exports.authenticate = {
 
   handler: function (request, reply) {
-    reply.redirect('/home');
+    const user = request.payload;
+
+    for (let i = 0; i < this.users.length; i++) {
+      if (user.email === this.users[i].email) {
+        this.currentUser = user;
+        reply.redirect('/home');
+      } else {
+        reply.view('login', {title: 'Login to Donations'});
+      }
+    }
   },
 
 };
