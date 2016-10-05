@@ -3,7 +3,7 @@
 exports.main = {
   auth: false,
   handler: function (request, reply) {
-    reply.view('main', {title: 'Welcome to Donations' });
+    reply.view('main', { title: 'Welcome to Donations' });
   },
 
 };
@@ -11,7 +11,7 @@ exports.main = {
 exports.signup = {
   auth: false,
   handler: function (request, reply) {
-    reply.view('signup', {title: 'Sign up for Donations' });
+    reply.view('signup', { title: 'Sign up for Donations' });
   },
 
 };
@@ -56,7 +56,7 @@ exports.viewSettings = {
   handler: function (request, reply) {
     var userEmail = request.auth.credentials.loggedInUser;
     var currentUserDetails = this.users[userEmail];
-    reply.view('settings', { title: 'Edit Account Settings',user:currentUserDetails });
+    reply.view('settings', { title: 'Edit Account Settings', user: currentUserDetails });
   },
 
 };
