@@ -3,7 +3,9 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-let dbURI = 'mongodb://localhost/donation';
+let dbURI =  'mongodb://localhost/donation';
+// 'mongodb://donationuser:donationuser@ds047940.mlab.com:47940/donation';
+
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGOLAB_URI;
 }
