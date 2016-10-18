@@ -20,7 +20,7 @@ exports.home = {
 exports.report = {
 
   handler: function (request, reply) {
-    Donation.find({}).populate('donor').then(allDonations => {
+    Donation.find({}).populate('donor').populate('candidate').then(allDonations => {
       reply.view('report', {
         title: 'Donations to Date',
         donations: allDonations,
