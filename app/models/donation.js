@@ -5,6 +5,10 @@ const donationSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
+  candidate: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Candidate',
+  },
   amount: Number,
   method: String,
 });
