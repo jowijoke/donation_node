@@ -4,6 +4,7 @@ const assert = require('chai').assert;
 const DonationService = require('./donation-service');
 const fixtures = require('./fixtures.json');
 const _ = require('lodash');
+const donationService = new DonationService(fixtures.donationService);
 
 suite('Candidate API tests', function () {
 
