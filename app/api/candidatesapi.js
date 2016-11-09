@@ -66,11 +66,14 @@ exports.findOne = {
 
   handler: function (request, reply) {
     Candidate.findOne({ _id: request.params.id }).then(candidate => {
-      reply(candidate);
+      if (candidate != null) {
+        reply(candidate);
+      }
+
+      reply(Boom.notFound('id not found'));
     }).catch(err => {
       reply(Boom.notFound('id not found'));
     });
   },
 
 };
-
