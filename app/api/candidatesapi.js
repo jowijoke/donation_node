@@ -48,7 +48,7 @@ exports.deleteOne = {
 
 exports.find = {
 
-  auth: 'jwt',
+  auth: false,
 
   handler: function (request, reply) {
     Candidate.find({}).exec().then(candidates => {
